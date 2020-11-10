@@ -1,11 +1,10 @@
 package com.bots.crew;
 
-import java.util.Scanner;
-
 import com.bots.crew.model.Head;
 import com.bots.crew.service.DegreeService;
 import com.bots.crew.service.DepartmentService;
 import com.bots.crew.service.LectorService;
+import java.util.Scanner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -52,7 +51,7 @@ public class Application implements CommandLineRunner {
             } else if (command.contains(GET_NUMBER_OF_EMPLOYEE_COMMAND)) {
                 showNumberOfEmployee(command);
             } else if (command.contains(GLOBAL_SEARCH_COMMAND)) {
-               provideGlobalSearch(command);
+                provideGlobalSearch(command);
             } else {
                 System.out.println("Unknown command.");
             }

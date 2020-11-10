@@ -3,10 +3,9 @@ package com.bots.crew.service.impl;
 import com.bots.crew.model.Degree;
 import com.bots.crew.repository.DegreeRepository;
 import com.bots.crew.service.DegreeService;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class DegreeServiceImpl implements DegreeService {

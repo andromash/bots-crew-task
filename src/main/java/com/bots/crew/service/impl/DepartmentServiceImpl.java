@@ -2,11 +2,9 @@ package com.bots.crew.service.impl;
 
 import com.bots.crew.model.Department;
 import com.bots.crew.model.Head;
-import com.bots.crew.model.Lector;
 import com.bots.crew.repository.DepartmentRepository;
 import com.bots.crew.service.DepartmentService;
 import java.util.List;
-import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,10 +29,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 
     @Override
     public double getAverageSalary(String name) {
-        List<Long> ids = departmentRepository.findByName(name).getLectors().stream()
-                .map(Lector::getId)
-                .collect(Collectors.toList());
-        return departmentRepository.getAverageSalary(ids);
+        return departmentRepository.getAverageSalary(name);
     }
 
     @Override

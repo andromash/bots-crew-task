@@ -3,10 +3,9 @@ package com.bots.crew.service.impl;
 import com.bots.crew.model.Lector;
 import com.bots.crew.repository.LectorRepository;
 import com.bots.crew.service.LectorService;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class LectorServiceImpl implements LectorService {

@@ -5,6 +5,7 @@ import com.bots.crew.model.Department;
 import com.bots.crew.model.Head;
 import com.bots.crew.model.Lector;
 import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,13 +32,13 @@ public class InjectDataService {
         Degree assistant = degreeService.add(new Degree("assistant"));
         Degree associateProfessor = degreeService.add(new Degree("associate professor"));
         Degree professor = degreeService.add(new Degree("professor"));
-
-        Lector johnDoe = lectorService.add(new Lector("John", "Doe", assistant,
-                BigInteger.valueOf(10000)));
-        Lector janeDoe = lectorService.add(new Lector("Jane", "Doe", associateProfessor,
-                BigInteger.valueOf(15000)));
-        Lector markSmith = lectorService.add(new Lector("Mark", "Smith", professor,
-                BigInteger.valueOf(30000)));
+        List<Lector> lectors = new ArrayList<>();
+        lectors.add(lectorService.add(new Lector("John", "Doe", assistant,
+                BigInteger.valueOf(10000))));
+        lectors.add(lectorService.add(new Lector("Jane", "Doe", associateProfessor,
+                BigInteger.valueOf(15000))));
+        lectors.add(lectorService.add(new Lector("Mark", "Smith", professor,
+                BigInteger.valueOf(30000))));
 
         Head head = new Head();
         head.setName("Bob");
@@ -48,7 +49,7 @@ public class InjectDataService {
 
         Department department = new Department();
         department.setHead(head);
-        department.setLectors(List.of(johnDoe, janeDoe, markSmith));
+        department.setLectors(lectors);
         department.setName("IT");
         departmentService.add(department);
     }
