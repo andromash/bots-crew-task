@@ -12,6 +12,6 @@ public interface DepartmentRepository extends JpaRepository<Department, Long> {
     @Query("SELECT AVG(l.salary) FROM Lector l WHERE l.id IN (?1)")
     double getAverageSalary(List<Long> ids);
 
-    @Query("SELECT COUNT (l.id) FROM Lector l INNER JOIN Department d WHERE d.name = ?1")
+    @Query("SELECT COUNT (l.id) FROM Lector l WHERE ?1 IN (SELECT d.name FROM Department d)")
     int getNumberOfEmployees(String name);
 }

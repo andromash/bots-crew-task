@@ -1,16 +1,14 @@
 package com.bots.crew.service;
 
-import javax.annotation.PostConstruct;
-
 import com.bots.crew.model.Degree;
 import com.bots.crew.model.Department;
 import com.bots.crew.model.Head;
 import com.bots.crew.model.Lector;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
 import java.math.BigInteger;
 import java.util.List;
+import javax.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 @Component
 public class InjectDataService {
@@ -42,10 +40,10 @@ public class InjectDataService {
                 BigInteger.valueOf(30000)));
 
         Head head = new Head();
-        head.setName("Mark");
-        head.setSurname("Smith");
+        head.setName("Bob");
+        head.setSurname("Robyn");
         head.setDegree(professor);
-        head.setSalary(BigInteger.valueOf(30000));
+        head.setSalary(BigInteger.valueOf(40000));
         headService.add(head);
 
         Department department = new Department();

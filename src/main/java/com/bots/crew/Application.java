@@ -42,12 +42,17 @@ public class Application implements CommandLineRunner {
             if (command.contains(GET_HEAD_COMMAND)) {
                 String department = command.replace(GET_HEAD_COMMAND, "").trim();
                 Head headOfDepartment = departmentService.getHeadOfDepartment(department);
-                System.out.println("Head of" + department + "department is " + headOfDepartment);
+                System.out.println("Head of " + department + " department is " + headOfDepartment.toString());
             } else if (command.contains(GET_AVERAGE_SALARY_COMMAND)) {
                 String department = command.replace(GET_AVERAGE_SALARY_COMMAND, "").trim();
                 double averageSalary = departmentService.getAverageSalary(department);
-                System.out.println("The average salary of" + department + "is " + averageSalary);
+                System.out.println("The average salary of " + department + " is " + averageSalary);
+            } else if (command.contains(GET_NUMBER_OF_EMPLOYEE_COMMAND)) {
+                String department = command.replace(GET_NUMBER_OF_EMPLOYEE_COMMAND, "").trim();
+                int numberOfEmployee = departmentService.numberOfEmployees(department);
+                System.out.println(numberOfEmployee);
             }
+            System.out.println("Unknown command.");
         }
     }
 }

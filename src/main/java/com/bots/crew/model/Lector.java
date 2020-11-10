@@ -1,17 +1,20 @@
 package com.bots.crew.model;
 
 import java.math.BigInteger;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "lectors")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Lector {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,6 +24,8 @@ public class Lector {
     @ManyToOne
     private Degree degree;
     private BigInteger salary;
+    @ManyToMany
+    private List<Department> departments;
 
     public Lector() {
     }
@@ -70,5 +75,18 @@ public class Lector {
 
     public void setSalary(BigInteger salary) {
         this.salary = salary;
+    }
+
+    public List<Department> getDepartments() {
+        return departments;
+    }
+
+    public void setDepartments(List<Department> departments) {
+        this.departments = departments;
+    }
+
+    @Override
+    public String toString() {
+        return name + " " + surname + ", " + degree;
     }
 }
