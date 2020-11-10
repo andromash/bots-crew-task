@@ -6,6 +6,8 @@ import com.bots.crew.service.DegreeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class DegreeServiceImpl implements DegreeService {
     private final DegreeRepository degreeRepository;
@@ -18,5 +20,10 @@ public class DegreeServiceImpl implements DegreeService {
     @Override
     public Degree add(Degree degree) {
         return degreeRepository.save(degree);
+    }
+
+    @Override
+    public List<Degree> provideGlobalSearch(String part) {
+        return degreeRepository.findDegreeByNameContains(part);
     }
 }

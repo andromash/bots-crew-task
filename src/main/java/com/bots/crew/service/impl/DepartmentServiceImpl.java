@@ -43,7 +43,12 @@ public class DepartmentServiceImpl implements DepartmentService {
     }
 
     @Override
-    public int numberOfEmployees(String name) {
+    public int getNumberOfEmployees(String name) {
         return departmentRepository.getNumberOfEmployees(name);
+    }
+
+    @Override
+    public List<Department> provideGlobalSearch(String part) {
+        return departmentRepository.findDepartmentByNameContains(part);
     }
 }

@@ -2,6 +2,7 @@ package com.bots.crew.service;
 
 import com.bots.crew.model.Department;
 import com.bots.crew.model.Head;
+import java.util.List;
 
 public interface DepartmentService {
 
@@ -13,5 +14,7 @@ public interface DepartmentService {
 
     Head getHeadOfDepartment(String name);
 
-    int numberOfEmployees(String name);
+    int getNumberOfEmployees(String name);
+
+    List<Department> provideGlobalSearch(String part);
 }

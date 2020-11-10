@@ -14,4 +14,6 @@ public interface DepartmentRepository extends JpaRepository<Department, Long> {
 
     @Query("SELECT COUNT (l.id) FROM Lector l WHERE ?1 IN (SELECT d.name FROM Department d)")
     int getNumberOfEmployees(String name);
+
+    List<Department> findDepartmentByNameContains(String part2);
 }

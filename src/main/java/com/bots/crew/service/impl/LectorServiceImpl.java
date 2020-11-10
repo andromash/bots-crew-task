@@ -6,6 +6,8 @@ import com.bots.crew.service.LectorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class LectorServiceImpl implements LectorService {
     private final LectorRepository lectorRepository;
@@ -18,5 +20,10 @@ public class LectorServiceImpl implements LectorService {
     @Override
     public Lector add(Lector lector) {
         return lectorRepository.save(lector);
+    }
+
+    @Override
+    public List<Lector> provideGlobalSearch(String part) {
+        return lectorRepository.findLectorsByNameContainsOrSurnameContains(part, part);
     }
 }
