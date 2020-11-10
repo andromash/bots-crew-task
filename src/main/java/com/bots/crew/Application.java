@@ -17,6 +17,7 @@ public class Application implements CommandLineRunner {
             + " for the department";
     private static final String GET_NUMBER_OF_EMPLOYEE_COMMAND = "Show count of employee for";
     private static final String GLOBAL_SEARCH_COMMAND = "Global search by";
+    private static final String STATISTICS_COMMAND = "statistics";
     private final DepartmentService departmentService;
     private final LectorService lectorService;
     private final DegreeService degreeService;
@@ -52,6 +53,8 @@ public class Application implements CommandLineRunner {
                 showNumberOfEmployee(command);
             } else if (command.contains(GLOBAL_SEARCH_COMMAND)) {
                 provideGlobalSearch(command);
+            } else if (command.contains(STATISTICS_COMMAND)) {
+                showStatistics(command);
             } else {
                 System.out.println("Unknown command.");
             }
@@ -85,5 +88,12 @@ public class Application implements CommandLineRunner {
                 department -> System.out.print(department.getName() + ", "));
         degreeService.provideGlobalSearch(part).forEach(
                 degree -> System.out.print(degree.getName() + ", "));
+    }
+
+    private void showStatistics(String command) {
+        String department = command.replace(STATISTICS_COMMAND, "")
+                .replace("Show", "").trim();
+        String statistics = departmentService.showStatistics(department);
+        System.out.println(statistics);
     }
 }

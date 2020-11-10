@@ -25,4 +25,9 @@ public class DegreeServiceImpl implements DegreeService {
     public List<Degree> provideGlobalSearch(String part) {
         return degreeRepository.findDegreeByNameContains(part);
     }
+
+    @Override
+    public List<Degree> getAll() {
+        return degreeRepository.findAll();
+    }
 }

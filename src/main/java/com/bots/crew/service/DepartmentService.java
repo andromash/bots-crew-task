@@ -16,5 +16,7 @@ public interface DepartmentService {
 
     int getNumberOfEmployees(String name);
 
+    String showStatistics(String name);
+
     List<Department> provideGlobalSearch(String part);
 }

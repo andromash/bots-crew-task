@@ -8,4 +8,6 @@ public interface DegreeService {
     Degree add(Degree degree);
 
     List<Degree> provideGlobalSearch(String part);
+
+    List<Degree> getAll();
 }
